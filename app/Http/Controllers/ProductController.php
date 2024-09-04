@@ -18,7 +18,7 @@ class ProductController extends Controller
     {
         return Inertia::render('Products/Index', [
 
-            //
+            'products' => Product::with('user:id,name')->latest()->get(),
 
         ]);
     }
