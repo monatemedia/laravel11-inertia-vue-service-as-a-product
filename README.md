@@ -61,9 +61,13 @@ The `-a` flag will generate a migration, seeder, factory, policy, resource contr
 php artisan make:model -a Product
 ```
 
-## Check Routes
+## Route Lists
 
-You may view all of the routes for your application by running the `php artisan route:list` command.
+You may view all of the routes for your application by running this command. 
+
+```sh
+    php artisan route:list
+``` 
 
 ## Check Migrations
 
