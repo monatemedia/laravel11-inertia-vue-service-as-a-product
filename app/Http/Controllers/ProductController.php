@@ -3,17 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use Inertia\Inertia;
+use Inertia\Response;
 
 class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): Response
     {
-        //
+        return Inertia::render('Products/Index', [
+
+            //
+
+        ]);
     }
 
     /**
@@ -27,9 +34,14 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProductRequest $request)
+    public function store(StoreProductRequest $request): RedirectResponse
     {
-        //
+        // Retrieve the validated input data...
+        $validated = $request->validated();
+
+        $request->user()->products()->create($validated);
+
+        return redirect(route('products.index'));
     }
 
     /**

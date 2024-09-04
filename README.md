@@ -17,6 +17,8 @@ composer create-project laravel/laravel laravel11-inertia-vue-service-as-a-produ
 cd laravel11-inertia-vue-service-as-a-product
 ```
 
+Do your initial commit here!
+
 ```sh
 php artisan serve
 ```
@@ -45,9 +47,49 @@ You can see all the available options by running
 php artisan make:model --help
 ```
 
+The `-a` flag will generate a migration, seeder, factory, policy, resource controller, and form request classes for the model
+
+* `model`s provide a powerful and enjoyable interface for you to interact with the tables in your database. 
+* `migration`s allow you to easily create and modify the tables in your database. They ensure that the same database structure exists everywhere that your application runs.
+* `seeder`s give you the ability to seed your database with data using seed classes
+* `factory`s for when testing your application or seeding your database, you may need to insert a few records into your database.
+* `policy`s are classes that organize authorization logic around a particular model or resource
+* `resource controller` to quickly handle create, read, update, and delete ("CRUD") routes.
+* `form request class` are custom request classes that encapsulate their own validation and authorization logic.
+
 ```sh
 php artisan make:model -a Product
 ```
+
+## Check Routes
+
+You may view all of the routes for your application by running the `php artisan route:list` command.
+
+## Check Migrations
+
+During the creation of the application, Laravel already applied the default migrations that are included in the `database/migrations` directory. You may inspect the current database structure by using the `php artisan db:show` and `php artisan db:table` commands:
+
+```sh
+php artisan db:show
+```
+
+```sh
+php artisan db:table users
+```
+
+## Run Migrations
+
+```sh
+php artisan migrate
+```
+
+Each database migration will only be run once. To make additional changes to a table, you will need to create another migration. During development, you may wish to update an undeployed migration and rebuild your database from scratch using the `php artisan migrate:fresh` command.
+
+```sh
+php artisan migrate:fresh
+```
+
+
 
 ## About Laravel
 
